@@ -46,8 +46,9 @@ VIDEO_EXTS = {".mp4", ".webm"}
 SKIP_EXTS = {".heic", ".heif", ".tif", ".tiff", ".cr2", ".nef", ".dng", ".arw"}
 VIDEO_CONVERT = {".mov", ".avi", ".mkv", ".m4v", ".wmv"}
 
-# leading letters, then a number (leading zeros allowed and ignored for sorting)
-PATTERN = re.compile(r"^([A-Za-z]+)0*(\d+)\b")
+# collection_prefix_number, e.g. available_work_01.jpg
+# Everything before the last _number is the collection name.
+PATTERN = re.compile(r"^(.+)_0*(\d+)$")
 
 # preferred photo subfolder
 PHOTO_SUBDIR = "images"
@@ -121,35 +122,38 @@ def main():
         if ext not in WEB_EXTS and ext not in VIDEO_EXTS:
             continue
 
-        m = PATTERN.match(name)
+        stem = os.path.splitext(name)[0]
+        m = PATTERN.match(stem)
         if not m:
             unmatched.append(name)
             continue
 
-        letter = m.group(1).upper()
+        collection = m.group(1)          # e.g. "available_work"
         number = int(m.group(2))
-        groups.setdefault(letter, []).append((number, name))
+        groups.setdefault(collection, []).append((number, name))
 
     if not groups:
-        print("  No photos matched the 'letter + number' naming pattern.")
+        print("  No photos matched the expected naming pattern.")
+        print("  Files should be named:  collection_name_01.jpg")
+        print("  Example: available_work_01.jpg, commissions_03.jpg")
         if needs_convert:
             print("  (Found files that browsers can't show; see note below.)")
 
-    # sort: groups alphabetically, photos within a group by number
+    # sort: collections alphabetically, photos within each collection by number
     ordered = {}
     caption_hits = 0
-    for letter in sorted(groups):
-        photos = sorted(groups[letter], key=lambda t: (t[0], t[1]))
+    for collection in sorted(groups):
+        photos = sorted(groups[collection], key=lambda t: (t[0], t[1]))
         items = []
         for _, name in photos:
-            stem = os.path.splitext(name)[0].lower()
-            title, desc = captions.get(name.lower(), captions.get(stem, ("", "")))
+            stem_lower = os.path.splitext(name)[0].lower()
+            title, desc = captions.get(name.lower(), captions.get(stem_lower, ("", "")))
             if title or desc:
                 caption_hits += 1
             kind = "video" if os.path.splitext(name)[1].lower() in VIDEO_EXTS else "image"
             items.append({"file": url_prefix + name, "type": kind,
                           "title": title, "desc": desc})
-        ordered[letter] = items
+        ordered[collection] = items
 
     # write quilts.js next to index.html (repo root), not in images/
     out = os.path.join(folder, "quilts.js")
@@ -164,9 +168,9 @@ def main():
     print("\n  Quilt gallery generated\n  " + "-" * 38)
     print(f"  Scanned photos in: {where}")
     total = 0
-    for letter, items in ordered.items():
+    for collection, items in ordered.items():
         total += len(items)
-        print(f"  Collection {letter}: {len(items)} photo(s)")
+        print(f"  {collection}: {len(items)} photo(s)")
     print("  " + "-" * 38)
     print(f"  {total} photo(s) across {len(ordered)} collection(s)")
     if captions:
@@ -176,7 +180,7 @@ def main():
     print(f"  Wrote: {out}\n")
 
     if unmatched:
-        print("  Skipped (name doesn't fit 'letter + number'):")
+        print("  Skipped (no  collection_name_number  pattern found):")
         for n in sorted(unmatched):
             print(f"      - {n}")
         print()

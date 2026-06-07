@@ -24,11 +24,13 @@
     homeLabel: "NES Creates",
     instagram: "https://www.instagram.com/nes_creates/"  // set "" to hide
   };
-  // Real names for each letter group. Anything unlisted shows as "Collection A", etc.
+  // TITLES: override a collection's display name if you want something
+  // different from the auto-formatted version. Key = the filename prefix.
+  // Underscores become spaces and each word is capitalised automatically,
+  // so you only need this if the auto result isn't quite right.
   const TITLES = {
-    // A: "Available Work",
-    // B: "Past Commissions",
-    // C: "Series",
+    // available_work:      "Available Work",
+    // past_commissions:    "Past Commissions",
   };
 </script>
 
@@ -101,35 +103,60 @@
     font-size: clamp(1rem, 1.6vw, 1.15rem);
   }
 
-  /* ---------- tabs ---------- */
-  .tabs-wrap {
-    position: sticky; top: 57px; z-index: 30;
-    background: rgba(247,245,241,.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    margin-top: clamp(1.75rem, 4vw, 2.75rem);
-  }
-  .tabs {
-    display: flex; gap: clamp(1rem, 2.5vw, 2rem);
-    max-width: 1280px; margin: 0 auto;
+  /* ---------- collection picker (dropdown) ---------- */
+  .picker-wrap {
+    max-width: 1280px; margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
     padding: 0 clamp(1.25rem, 5vw, 3.5rem);
-    overflow-x: auto; scrollbar-width: none;
   }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab {
-    appearance: none; background: none; border: 0; cursor: pointer;
-    font-family: var(--font-ui); font-size: .92rem; font-weight: 500;
-    letter-spacing: .02em; color: var(--ink-soft);
-    padding: 1rem .15rem; white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color .2s ease, border-color .2s ease;
+  .picker { position: relative; display: inline-block; }
+  .picker-btn {
+    appearance: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: .65rem;
+    min-width: 240px;
+    font-family: var(--font-ui); font-size: 1rem; font-weight: 500;
+    color: var(--ink); background: var(--panel);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: .65rem 1.15rem;
+    box-shadow: var(--shadow);
+    transition: border-color .2s ease;
   }
-  .tab:hover { color: var(--ink); }
-  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-  .tab .n {
-    font-size: .7rem; color: var(--muted); margin-left: .35rem;
-    font-variant-numeric: tabular-nums;
+  .picker-btn:hover { border-color: var(--accent); }
+  .picker-btn .picker-label { font-family: var(--font-display); font-weight: 500; }
+  .picker-btn .picker-count {
+    color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums;
   }
+  .picker-btn .picker-chev {
+    margin-left: auto; color: var(--ink-soft); font-size: .8rem;
+    transition: transform .25s ease;
+  }
+  .picker.open .picker-chev { transform: rotate(180deg); }
+
+  .picker-menu {
+    position: absolute; top: calc(100% + .5rem); left: 0; z-index: 35;
+    min-width: 100%; list-style: none; margin: 0; padding: .4rem;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 24px 55px -22px rgba(60,42,28,.5);
+    opacity: 0; transform: translateY(-6px); pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    max-height: 60vh; overflow-y: auto;
+  }
+  .picker.open .picker-menu { opacity: 1; transform: none; pointer-events: auto; }
+  .picker-item {
+    appearance: none; cursor: pointer; width: 100%;
+    display: flex; align-items: center; gap: 1.25rem;
+    background: none; border: 0; text-align: left;
+    font-family: var(--font-ui); font-size: .95rem; color: var(--ink-soft);
+    padding: .6rem .85rem; border-radius: 10px; white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .picker-item:hover { background: var(--paper); color: var(--ink); }
+  .picker-item.active { color: var(--accent); }
+  .picker-item .pi-name { font-family: var(--font-display); font-weight: 500; }
+  .picker-item .pi-count {
+    margin-left: auto; color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums;
+  }
+  .picker-item.active .pi-count { color: var(--accent); }
+  @media (max-width: 480px) { .picker, .picker-btn { width: 100%; } }
 
   /* ---------- grid ---------- */
   .stage { max-width: 1280px; margin: 0 auto;
@@ -272,7 +299,16 @@
   <p class="sub" id="subtitle"></p>
 </header>
 
-<div class="tabs-wrap"><div class="tabs" id="tabs"></div></div>
+<div class="picker-wrap">
+  <div class="picker" id="picker">
+    <button class="picker-btn" id="picker-btn" aria-haspopup="listbox" aria-expanded="false">
+      <span class="picker-label" id="picker-label"></span>
+      <span class="picker-count" id="picker-count"></span>
+      <span class="picker-chev">▾</span>
+    </button>
+    <ul class="picker-menu" id="picker-menu" role="listbox"></ul>
+  </div>
+</div>
 
 <main class="stage" id="stage"></main>
 
@@ -305,7 +341,10 @@
 <script>
 (function () {
   const data = (window.QUILTS && Object.keys(window.QUILTS).length) ? window.QUILTS : null;
-  const titleFor = (L) => (typeof TITLES !== "undefined" && TITLES[L]) ? TITLES[L] : "Collection " + L;
+  const titleFor = (L) =>
+    (typeof TITLES !== "undefined" && TITLES[L])
+      ? TITLES[L]
+      : L.replace(/[_-]+/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 
   // ----- header / footer chrome -----
   document.getElementById("title").innerHTML = SITE.title.replace(/(\S+)\s*$/, "<em>$1</em>");
@@ -331,24 +370,30 @@
   }
 
   const letters = Object.keys(data).sort();
-  const tabsEl = document.getElementById("tabs");
   const stageEl = document.getElementById("stage");
+  const menuEl = document.getElementById("picker-menu");
+  const picker = document.getElementById("picker");
+  const pickerBtn = document.getElementById("picker-btn");
+  const pickerLabel = document.getElementById("picker-label");
+  const pickerCount = document.getElementById("picker-count");
   let active = letters[0];
 
   function labelFor(item, L, i) {
-    return (item.title && item.title.trim()) ? item.title.trim() : (L + " " + (i + 1));
+    return (item.title && item.title.trim()) ? item.title.trim() : (titleFor(L) + " " + (i + 1));
   }
   function isVideo(item) {
     return item.type === "video" || /\.(mp4|webm|mov|ogg|ogv)$/i.test(item.file);
   }
 
-  // ----- build tabs + panels -----
+  // ----- build picker menu + panels -----
   letters.forEach(L => {
-    const btn = document.createElement("button");
-    btn.className = "tab"; btn.dataset.letter = L;
-    btn.innerHTML = titleFor(L) + '<span class="n">' + data[L].length + '</span>';
-    btn.addEventListener("click", () => setActive(L));
-    tabsEl.appendChild(btn);
+    const li = document.createElement("li");
+    const opt = document.createElement("button");
+    opt.className = "picker-item"; opt.dataset.letter = L; opt.setAttribute("role", "option");
+    opt.innerHTML = '<span class="pi-name">' + titleFor(L) + '</span>' +
+                    '<span class="pi-count">' + data[L].length + '</span>';
+    opt.addEventListener("click", () => { setActive(L); closeMenu(); });
+    li.appendChild(opt); menuEl.appendChild(li);
 
     const panel = document.createElement("section");
     panel.className = "panel"; panel.id = "panel-" + L;
@@ -367,7 +412,7 @@
         '<div class="frame">' + media + '</div>' +
         '<figcaption class="cap">' +
           '<span class="t">' + label + '</span>' +
-          (hasTitle ? '<span class="id">' + L + " · " + (i + 1) + '</span>' : '') +
+          (hasTitle ? '<span class="id">' + titleFor(L) + " · " + (i + 1) + '</span>' : '') +
         '</figcaption>';
       fig.addEventListener("click", () => openLightbox(L, i));
       grid.appendChild(fig);
@@ -378,10 +423,23 @@
 
   function setActive(L) {
     active = L;
-    [...tabsEl.children].forEach(b => b.classList.toggle("active", b.dataset.letter === L));
+    [...menuEl.querySelectorAll(".picker-item")].forEach(b =>
+      b.classList.toggle("active", b.dataset.letter === L));
     letters.forEach(x => document.getElementById("panel-" + x).classList.toggle("active", x === L));
+    pickerLabel.textContent = titleFor(L);
+    pickerCount.textContent = data[L].length + (data[L].length === 1 ? " piece" : " pieces");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+  function openMenu()  { picker.classList.add("open"); pickerBtn.setAttribute("aria-expanded", "true"); }
+  function closeMenu() { picker.classList.remove("open"); pickerBtn.setAttribute("aria-expanded", "false"); }
+  pickerBtn.addEventListener("click", e => {
+    e.stopPropagation();
+    picker.classList.contains("open") ? closeMenu() : openMenu();
+  });
+  document.addEventListener("click", e => { if (!picker.contains(e.target)) closeMenu(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !document.getElementById("lb").classList.contains("open")) closeMenu(); });
+
   setActive(active);
 
   // ----- detail / lightbox (scoped to the active collection) -----
@@ -415,7 +473,7 @@
       lbMedia.appendChild(img);
     }
     lbTitle.textContent = label;
-    lbId.textContent = L + " · " + (curI + 1) + " / " + list.length;
+    lbId.textContent = titleFor(curL) + " · " + (curI + 1) + " / " + list.length;
     lbDesc.textContent = (item.desc && item.desc.trim()) ? item.desc.trim() : "";
   }
   function openLightbox(L, i) { show(L, i); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); }
