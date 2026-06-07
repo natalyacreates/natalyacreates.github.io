@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quilt Gallery — NES Creates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@300..600&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     EDIT ME — everything you'd normally want to change is here.
+
+     COLORS & FONTS: I matched the clean, light look of nescreates.com
+     and pulled a deep-red accent from Natalya's work. If you have the
+     site's exact hex codes / fonts, swap them in the :root block and the
+     two font-family lines below — that's all it takes.
+     ============================================================ -->
+<script>
+  const SITE = {
+    title: "Quilt Gallery",
+    subtitle: "Art quilts by Natalya E. Sumner",
+    homeUrl: "https://www.nescreates.com/",   // "back to main site" link
+    homeLabel: "NES Creates",
+    instagram: "https://www.instagram.com/nes_creates/"  // set "" to hide
+  };
+  // Real names for each letter group. Anything unlisted shows as "Collection A", etc.
+  const TITLES = {
+    // A: "Available Work",
+    // B: "Past Commissions",
+    // C: "Series",
+  };
+</script>
+
+<style>
+  :root {
+    --paper:    #f7f5f1;   /* page background  */
+    --panel:    #fffdfa;   /* tiles / cards    */
+    --ink:      #211e1b;   /* primary text     */
+    --ink-soft: #5f574e;   /* secondary text   */
+    --muted:    #978c7e;   /* labels           */
+    --line:     #e4ddd0;   /* hairlines        */
+    --accent:   #a8432a;   /* deep red accent  */
+    --accent-d: #872f1c;
+    --shadow:   0 18px 40px -24px rgba(60,42,28,.5);
+
+    --font-display: "Fraunces", Georgia, serif;
+    --font-ui: "Hanken Grotesk", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem clamp(1.25rem, 5vw, 3.5rem);
+    background: rgba(247,245,241,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 1.15rem; letter-spacing: .01em;
+    color: var(--ink); text-decoration: none;
+  }
+  .back {
+    font-size: .82rem; letter-spacing: .04em; color: var(--ink-soft);
+    text-decoration: none; display: inline-flex; align-items: center; gap: .4rem;
+    transition: color .2s ease;
+  }
+  .back:hover { color: var(--accent); }
+  .back .arr { transition: transform .25s ease; }
+  .back:hover .arr { transform: translateX(-3px); }
+
+  /* ---------- masthead (compact) ---------- */
+  .masthead {
+    padding: clamp(2.25rem, 6vw, 3.75rem) clamp(1.25rem, 5vw, 3.5rem) 0;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: .9rem;
+  }
+  .masthead h1 {
+    font-family: var(--font-display);
+    font-weight: 330; font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1; letter-spacing: -.02em;
+  }
+  .masthead h1 em { font-style: italic; color: var(--accent); }
+  .masthead .sub {
+    margin-top: .8rem; color: var(--ink-soft);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+  }
+
+  /* ---------- tabs ---------- */
+  .tabs-wrap {
+    position: sticky; top: 57px; z-index: 30;
+    background: rgba(247,245,241,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  }
+  .tabs {
+    display: flex; gap: clamp(1rem, 2.5vw, 2rem);
+    max-width: 1280px; margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    appearance: none; background: none; border: 0; cursor: pointer;
+    font-family: var(--font-ui); font-size: .92rem; font-weight: 500;
+    letter-spacing: .02em; color: var(--ink-soft);
+    padding: 1rem .15rem; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab .n {
+    font-size: .7rem; color: var(--muted); margin-left: .35rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- grid ---------- */
+  .stage { max-width: 1280px; margin: 0 auto;
+           padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 5vw, 3.5rem) 4rem; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .45s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(.9rem, 1.8vw, 1.5rem);
+  }
+  @media (max-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 680px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .tile {
+    position: relative; cursor: zoom-in;
+    border-radius: 5px; overflow: hidden;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .tile .frame { aspect-ratio: 4 / 5; overflow: hidden; position: relative; }
+  .tile img, .tile video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .tile:hover { transform: translateY(-4px); }
+  .tile:hover img, .tile:hover video { transform: scale(1.05); }
+  .tile .play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 3rem; height: 3rem; border-radius: 999px;
+    background: rgba(28,20,14,.5); border: 1.5px solid rgba(255,255,255,.85);
+    display: grid; place-items: center; pointer-events: none;
+    backdrop-filter: blur(2px); transition: background .25s ease;
+  }
+  .tile .play::after {
+    content: ""; margin-left: 3px;
+    border-style: solid; border-width: .5rem 0 .5rem .8rem;
+    border-color: transparent transparent transparent #fff;
+  }
+  .tile:hover .play { background: var(--accent); }
+  .tile .cap {
+    position: absolute; inset: auto 0 0 0;
+    padding: 1.6rem .9rem .75rem;
+    background: linear-gradient(transparent, rgba(28,20,14,.78));
+    color: #fff; opacity: 0; transform: translateY(6px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .tile:hover .cap { opacity: 1; transform: none; }
+  .tile .cap .t {
+    font-family: var(--font-display); font-size: .98rem; font-weight: 500;
+    line-height: 1.2; display: block;
+  }
+  .tile .cap .id {
+    font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+    opacity: .8; margin-top: .15rem; display: block;
+  }
+
+  /* ---------- empty state ---------- */
+  .empty {
+    max-width: 640px; margin: 2.5rem auto;
+    padding: 2.5rem; border: 1px dashed var(--line); border-radius: 10px;
+    background: var(--panel);
+  }
+  .empty h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.4rem; margin-bottom: .7rem; }
+  .empty p { color: var(--ink-soft); margin-bottom: .55rem; }
+  .empty code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    background: var(--paper); padding: .15em .45em; border-radius: 4px; font-size: .88em;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2.5rem clamp(1.25rem, 5vw, 3.5rem);
+    color: var(--muted); font-size: .82rem;
+    display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center;
+    max-width: 1280px; margin: 0 auto;
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  footer .copy { font-family: var(--font-display); color: var(--ink); }
+  footer .spacer { margin-left: auto; }
+
+  /* ---------- detail / lightbox ---------- */
+  .lb {
+    position: fixed; inset: 0; z-index: 100; display: none;
+    background: rgba(26,18,12,.94); backdrop-filter: blur(5px);
+  }
+  .lb.open { display: grid; grid-template-rows: 1fr auto; animation: lbfade .3s ease; }
+  @keyframes lbfade { from { opacity: 0; } }
+  .lb-stage { position: relative; display: grid; place-items: center; padding: clamp(1rem,4vw,3rem); min-height: 0; }
+  .lb-stage img, .lb-stage video {
+    max-width: 100%; max-height: 72vh; border-radius: 3px;
+    box-shadow: 0 40px 120px -30px rgba(0,0,0,.8);
+    animation: lbpop .35s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes lbpop { from { transform: scale(.97); opacity: 0; } }
+  .lb-info {
+    text-align: center; color: #f4ede1;
+    padding: 0 clamp(1rem,5vw,3rem) clamp(1.5rem,4vw,2.5rem);
+    max-width: 760px; margin: 0 auto;
+  }
+  .lb-info .t { font-family: var(--font-display); font-size: clamp(1.2rem,3vw,1.7rem); font-weight: 400; }
+  .lb-info .id { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: #d8a489; margin-top: .4rem; }
+  .lb-info .d { color: #d8cfc4; font-size: .95rem; line-height: 1.55; margin-top: .8rem; }
+  .lb-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 3.1rem; height: 3.1rem; display: grid; place-items: center;
+    background: rgba(244,237,225,.1); border: 1px solid rgba(244,237,225,.25);
+    color: #f4ede1; border-radius: 999px; cursor: pointer; font-size: 1.3rem;
+    transition: background .2s ease;
+  }
+  .lb-btn:hover { background: rgba(244,237,225,.22); }
+  .lb-prev { left: clamp(.5rem,2vw,2rem); }
+  .lb-next { right: clamp(.5rem,2vw,2rem); }
+  .lb-close {
+    position: absolute; top: clamp(1rem,3vw,1.75rem); right: clamp(1rem,3vw,1.75rem);
+    width: 2.7rem; height: 2.7rem; border-radius: 999px; z-index: 2;
+    background: rgba(244,237,225,.1); border: 1px solid rgba(244,237,225,.25);
+    color: #f4ede1; cursor: pointer; font-size: 1.15rem; display: grid; place-items: center;
+    transition: background .2s ease;
+  }
+  .lb-close:hover { background: rgba(244,237,225,.22); }
+  @media (max-width: 600px) { .lb-prev, .lb-next { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="brand" id="brand" href="#">NES Creates</a>
+  <a class="back" id="back" href="#"><span class="arr">←</span> <span id="back-label">Back</span></a>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">Quilt Gallery</div>
+  <h1 id="title"></h1>
+  <p class="sub" id="subtitle"></p>
+</header>
+
+<div class="tabs-wrap"><div class="tabs" id="tabs"></div></div>
+
+<main class="stage" id="stage"></main>
+
+<footer>
+  <span class="copy">© Natalya E. Sumner</span>
+  <a id="foot-home" href="#">Main site</a>
+  <a id="foot-ig" href="#" target="_blank" rel="noopener">Instagram</a>
+  <span class="spacer"></span>
+  <span>Click a quilt to view it · ← → to browse</span>
+</footer>
+
+<!-- detail / lightbox -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+  <div class="lb-stage">
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous">‹</button>
+    <div class="lb-media" id="lb-media"></div>
+    <button class="lb-btn lb-next" id="lb-next" aria-label="Next">›</button>
+  </div>
+  <div class="lb-info">
+    <div class="t" id="lb-title"></div>
+    <div class="id" id="lb-id"></div>
+    <div class="d" id="lb-desc"></div>
+  </div>
+</div>
+
+<!-- generated list of quilts; recreated each time you run generate_gallery.py -->
+<script src="quilts.js"></script>
+
+<script>
+(function () {
+  const data = (window.QUILTS && Object.keys(window.QUILTS).length) ? window.QUILTS : null;
+  const titleFor = (L) => (typeof TITLES !== "undefined" && TITLES[L]) ? TITLES[L] : "Collection " + L;
+
+  // ----- header / footer chrome -----
+  document.getElementById("title").innerHTML = SITE.title.replace(/(\S+)\s*$/, "<em>$1</em>");
+  document.getElementById("subtitle").textContent = SITE.subtitle;
+  document.getElementById("brand").textContent = SITE.homeLabel;
+  document.getElementById("brand").href = SITE.homeUrl;
+  document.getElementById("back").href = SITE.homeUrl;
+  document.getElementById("back-label").textContent = SITE.homeLabel;
+  document.getElementById("foot-home").href = SITE.homeUrl;
+  document.title = SITE.title + " — " + SITE.homeLabel;
+  const ig = document.getElementById("foot-ig");
+  if (SITE.instagram) { ig.href = SITE.instagram; } else { ig.style.display = "none"; }
+
+  if (!data) {
+    document.getElementById("stage").innerHTML =
+      '<div class="empty">' +
+      '<h3>No quilts loaded yet</h3>' +
+      '<p>Put <code>index.html</code> and <code>generate_gallery.py</code> in your photo folder, then run:</p>' +
+      '<p><code>python3 generate_gallery.py</code></p>' +
+      '<p>That groups your photos by letter and writes <code>quilts.js</code>. Refresh and your quilts appear here.</p>' +
+      '</div>';
+    return;
+  }
+
+  const letters = Object.keys(data).sort();
+  const tabsEl = document.getElementById("tabs");
+  const stageEl = document.getElementById("stage");
+  let active = letters[0];
+
+  function labelFor(item, L, i) {
+    return (item.title && item.title.trim()) ? item.title.trim() : (L + " " + (i + 1));
+  }
+  function isVideo(item) {
+    return item.type === "video" || /\.(mp4|webm|mov|ogg|ogv)$/i.test(item.file);
+  }
+
+  // ----- build tabs + panels -----
+  letters.forEach(L => {
+    const btn = document.createElement("button");
+    btn.className = "tab"; btn.dataset.letter = L;
+    btn.innerHTML = titleFor(L) + '<span class="n">' + data[L].length + '</span>';
+    btn.addEventListener("click", () => setActive(L));
+    tabsEl.appendChild(btn);
+
+    const panel = document.createElement("section");
+    panel.className = "panel"; panel.id = "panel-" + L;
+    const grid = document.createElement("div");
+    grid.className = "grid";
+
+    data[L].forEach((item, i) => {
+      const fig = document.createElement("figure");
+      fig.className = "tile";
+      const label = labelFor(item, L, i);
+      const hasTitle = item.title && item.title.trim();
+      const media = isVideo(item)
+        ? '<video muted playsinline preload="metadata" src="' + item.file + '#t=0.1"></video><span class="play"></span>'
+        : '<img loading="lazy" decoding="async" src="' + item.file + '" alt="' + label + '">';
+      fig.innerHTML =
+        '<div class="frame">' + media + '</div>' +
+        '<figcaption class="cap">' +
+          '<span class="t">' + label + '</span>' +
+          (hasTitle ? '<span class="id">' + L + " · " + (i + 1) + '</span>' : '') +
+        '</figcaption>';
+      fig.addEventListener("click", () => openLightbox(L, i));
+      grid.appendChild(fig);
+    });
+    panel.appendChild(grid);
+    stageEl.appendChild(panel);
+  });
+
+  function setActive(L) {
+    active = L;
+    [...tabsEl.children].forEach(b => b.classList.toggle("active", b.dataset.letter === L));
+    letters.forEach(x => document.getElementById("panel-" + x).classList.toggle("active", x === L));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  setActive(active);
+
+  // ----- detail / lightbox (scoped to the active collection) -----
+  const lb = document.getElementById("lb");
+  const lbMedia = document.getElementById("lb-media");
+  const lbTitle = document.getElementById("lb-title");
+  const lbId = document.getElementById("lb-id");
+  const lbDesc = document.getElementById("lb-desc");
+  let curL = null, curI = 0;
+
+  function clearMedia() {
+    const v = lbMedia.querySelector("video");
+    if (v) { v.pause(); }
+    lbMedia.innerHTML = "";
+  }
+
+  function show(L, i) {
+    const list = data[L];
+    curL = L; curI = (i + list.length) % list.length;
+    const item = list[curI];
+    const label = labelFor(item, L, curI);
+    clearMedia();
+    if (isVideo(item)) {
+      const v = document.createElement("video");
+      v.src = item.file; v.controls = true; v.playsInline = true;
+      v.preload = "metadata"; v.autoplay = true;
+      lbMedia.appendChild(v);
+    } else {
+      const img = document.createElement("img");
+      img.src = item.file; img.alt = label;
+      lbMedia.appendChild(img);
+    }
+    lbTitle.textContent = label;
+    lbId.textContent = L + " · " + (curI + 1) + " / " + list.length;
+    lbDesc.textContent = (item.desc && item.desc.trim()) ? item.desc.trim() : "";
+  }
+  function openLightbox(L, i) { show(L, i); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); }
+  function close() { clearMedia(); lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); }
+
+  document.getElementById("lb-close").addEventListener("click", close);
+  document.getElementById("lb-next").addEventListener("click", e => { e.stopPropagation(); show(curL, curI + 1); });
+  document.getElementById("lb-prev").addEventListener("click", e => { e.stopPropagation(); show(curL, curI - 1); });
+  document.querySelector(".lb-stage").addEventListener("click", e => { if (e.target.classList.contains("lb-stage")) close(); });
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowRight") show(curL, curI + 1);
+    else if (e.key === "ArrowLeft") show(curL, curI - 1);
+  });
+})();
+</script>
+</body>
+</html>
