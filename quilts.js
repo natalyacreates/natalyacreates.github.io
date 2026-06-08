@@ -54,6 +54,48 @@ window.QUILTS = {
       "type": "image",
       "title": "",
       "desc": ""
+    },
+    {
+      "file": "images/art_10.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_11.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_12.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_13.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_14.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_15.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_16.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
     }
   ],
   "available_work": [
@@ -76,27 +118,63 @@ window.QUILTS = {
       "desc": ""
     },
     {
-      "file": "images/available_work_04.jpg",
+      "file": "images/available_work_07.jpg",
       "type": "image",
       "title": "",
       "desc": ""
     },
     {
-      "file": "images/available_work_05.jpg",
+      "file": "images/available_work_08.jpg",
       "type": "image",
       "title": "",
       "desc": ""
     },
     {
-      "file": "images/available_work_06.jpg",
+      "file": "images/available_work_09.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_10.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_11.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_12.jpg",
       "type": "image",
       "title": "",
       "desc": ""
     }
   ],
-  "commisions": [
+  "baby_child": [
     {
-      "file": "images/commisions_06.jpg",
+      "file": "images/baby_child_01.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/baby_child_02.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/baby_child_03.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/baby_child_04.jpg",
       "type": "image",
       "title": "",
       "desc": ""
@@ -116,19 +194,63 @@ window.QUILTS = {
       "desc": ""
     },
     {
-      "file": "images/commissions_03.jpg",
-      "type": "image",
+      "file": "images/commissions_03.mp4",
+      "type": "video",
       "title": "",
       "desc": ""
     },
     {
-      "file": "images/commissions_04.jpg",
-      "type": "image",
+      "file": "images/commissions_04.mp4",
+      "type": "video",
       "title": "",
       "desc": ""
     },
     {
       "file": "images/commissions_05.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/commissions_06.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/commissions_07.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/commissions_08.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/commissions_09.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    }
+  ],
+  "sisters": [
+    {
+      "file": "images/sisters_01.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/sisters_02.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/sisters_03.jpg",
       "type": "image",
       "title": "",
       "desc": ""
