@@ -92,6 +92,36 @@ window.QUILTS = {
       "type": "image",
       "title": "",
       "desc": ""
+    },
+    {
+      "file": "images/available_work_07.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_08.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_09.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_10.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/available_work_11.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
     }
   ],
   "baby_child": [
@@ -292,6 +322,18 @@ window.QUILTS = {
     {
       "file": "images/the_creative_process_13.mp4",
       "type": "video",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_14.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_15.jpg",
+      "type": "image",
       "title": "",
       "desc": ""
     }
