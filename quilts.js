@@ -20,43 +20,37 @@ window.QUILTS = {
       "desc": ""
     },
     {
+      "file": "images/art_04.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_05.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
       "file": "images/art_06.jpg",
       "type": "image",
       "title": "",
       "desc": ""
     },
     {
+      "file": "images/art_07.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/art_08.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
       "file": "images/art_09.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_10.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_13.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_14.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_15.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_16.jpg",
       "type": "image",
       "title": "",
       "desc": ""
@@ -94,31 +88,7 @@ window.QUILTS = {
       "desc": ""
     },
     {
-      "file": "images/available_work_09.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/available_work_10.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/available_work_11.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/available_work_12.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/available_work_13.jpg",
+      "file": "images/available_work_06.jpg",
       "type": "image",
       "title": "",
       "desc": ""
@@ -315,6 +285,12 @@ window.QUILTS = {
     },
     {
       "file": "images/the_creative_process_12.mp4",
+      "type": "video",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_13.mp4",
       "type": "video",
       "title": "",
       "desc": ""
