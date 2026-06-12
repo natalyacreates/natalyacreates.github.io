@@ -4,151 +4,133 @@ window.QUILTS = {
     {
       "file": "images/art_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_02.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_03.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_04.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_05.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_06.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_07.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/art_08.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_09.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_10.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_11.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_12.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_13.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_14.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_15.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/art_16.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     }
   ],
   "available_work": [
     {
       "file": "images/available_work_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_02.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_03.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
-      "file": "images/available_work_07.jpg",
+      "file": "images/available_work_04.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
-      "file": "images/available_work_08.jpg",
+      "file": "images/available_work_05.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_09.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_10.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_11.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/available_work_12.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
+    },
+    {
+      "file": "images/available_work_13.jpg",
       "type": "image",
       "title": "",
       "desc": ""
@@ -158,23 +140,35 @@ window.QUILTS = {
     {
       "file": "images/baby_child_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/baby_child_02.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/baby_child_03.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
+    },
+    {
+      "file": "images/baby_child_04.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
+    },
+    {
+      "file": "images/baby_child_05.jpg",
       "type": "image",
       "title": "",
       "desc": ""
     },
     {
-      "file": "images/baby_child_04.jpg",
+      "file": "images/baby_child_06.jpg",
       "type": "image",
       "title": "",
       "desc": ""
@@ -184,94 +178,156 @@ window.QUILTS = {
     {
       "file": "images/commissions_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
-      "file": "images/commissions_02.mp4",
-      "type": "video",
-      "title": "",
-      "desc": ""
+      "file": "images/commissions_02.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
-      "file": "images/commissions_03.mp4",
-      "type": "video",
-      "title": "",
-      "desc": ""
+      "file": "images/commissions_03.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
-      "file": "images/commissions_04.mp4",
-      "type": "video",
-      "title": "",
-      "desc": ""
+      "file": "images/commissions_04.jpg",
+      "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/commissions_05.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/commissions_06.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/commissions_07.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/commissions_08.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
-    },
-    {
-      "file": "images/commissions_09.jpg",
-      "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     }
   ],
   "sisters": [
     {
       "file": "images/sisters_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/sisters_02.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/sisters_03.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     }
   ],
   "t_shirt": [
     {
       "file": "images/t_shirt_01.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/t_shirt_02.jpg",
       "type": "image",
-      "title": "",
-      "desc": ""
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
     },
     {
       "file": "images/t_shirt_03.jpg",
       "type": "image",
+      "title": "The Ladies",
+      "desc": "Art quilt featuring a silhouette of a woman with locs in a blue strapless dress with an elaborate black and blue beaded necklace."
+    },
+    {
+      "file": "images/t_shirt_04.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    }
+  ],
+  "the_creative_process": [
+    {
+      "file": "images/the_creative_process_01.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_02.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_03.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_04.mp4",
+      "type": "video",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_05.mp4",
+      "type": "video",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_06.mp4",
+      "type": "video",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_07.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_08.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_09.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_10.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_11.jpg",
+      "type": "image",
+      "title": "",
+      "desc": ""
+    },
+    {
+      "file": "images/the_creative_process_12.mp4",
+      "type": "video",
       "title": "",
       "desc": ""
     }
